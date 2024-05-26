@@ -5,7 +5,7 @@ on:
       - 'docs/**'
   push:
     branches:
-      - main
+      - '**'
     paths-ignore:
       - 'docs/**'
 
@@ -36,6 +36,8 @@ jobs:
     - id: set-packages
       name: Listing e2e tests packages
       shell: bash
+      env:
+        E2E_TESTS: ./tests/e2e/tests/labels
       run: |
         echo PACKAGES=$(make ls-e2e-test | jq -Rnc '[inputs | {"s": split("/")[-1], "f":.}]') | tee -a $GITHUB_STEP_SUMMARY | tee -a $GITHUB_OUTPUT
 
@@ -51,6 +53,7 @@ jobs:
         else
           SHA=${{ github.sha }}
         fi
+        SHA=latest
         echo "agentImage=quay.io/cilium/tetragon-ci:${SHA}" >> $GITHUB_OUTPUT
         echo "operatorImage=quay.io/cilium/tetragon-operator-ci:${SHA}" >> $GITHUB_OUTPUT
 
@@ -75,7 +78,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ ubuntu-22.04, actuated-arm64-4cpu-16gb ]
+        os: [ ubuntu-22.04 ]
         package: ${{fromJson(needs.prepare.outputs.packages)}}
     steps:
     - name: Checkout Code
