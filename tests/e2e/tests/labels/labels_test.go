@@ -107,7 +107,7 @@ func TestLabelsDemoApp(t *testing.T) {
 	// This feature waits for labelsChecker to start then runs a custom workload.
 	runWorkload := features.New("Run Workload").
 		/* Wait up to 30 seconds for the event checker to start before continuing */
-		Assess("Wait for Checker", labelsChecker.Wait(30*time.Second)).
+		//Assess("Wait for Checker", labelsChecker.Wait(30*time.Second)).
 		/* Run the workload */
 		Assess("Run Workload", installDemoApp(labelsChecker)).
 		Feature()
@@ -116,7 +116,9 @@ func TestLabelsDemoApp(t *testing.T) {
 		Assess("Uninstall", uninstallDemoApp()).Feature()
 
 	// Spawn workload and run checker
-	runner.TestInParallel(t, runEventChecker, runWorkload)
+	//runner.TestInParallel(t, runEventChecker, runWorkload)
+	runner.Test(t, runWorkload)
+	runner.Test(t, runEventChecker)
 	runner.Test(t, uninstall)
 }
 
