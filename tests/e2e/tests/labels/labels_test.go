@@ -30,7 +30,6 @@ const (
 )
 
 func installDemoApp(labelsChecker *checker.RPCChecker) features.Func {
-	labelsChecker.CheckInNamespace(1*time.Minute, namespace)
 	return func(ctx context.Context, t *testing.T, c *envconf.Config) context.Context {
 		manager := helm.New(c.KubeconfigFile())
 		if err := manager.RunRepo(helm.WithArgs("add", "open-telemetry", "https://open-telemetry.github.io/opentelemetry-helm-charts")); err != nil {
@@ -104,11 +103,9 @@ func TestLabelsDemoApp(t *testing.T) {
 	// This starts labelsChecker and uses it to run event checks.
 	runEventChecker := features.New("Run Event Checks").
 		Assess("Run Event Checks", labelsChecker.CheckInNamespace(1*time.Minute, namespace)).Feature()
-	_ = runEventChecker
+
 	// This feature waits for labelsChecker to start then runs a custom workload.
 	runWorkload := features.New("Run Workload").
-		/* Wait up to 30 seconds for the event checker to start before continuing */
-		//Assess("Wait for Checker", labelsChecker.Wait(30*time.Second)).
 		/* Run the workload */
 		Assess("Run Workload", installDemoApp(labelsChecker)).
 		Feature()
@@ -117,7 +114,8 @@ func TestLabelsDemoApp(t *testing.T) {
 		Assess("Uninstall", uninstallDemoApp()).Feature()
 
 	// Spawn workload and run checker
-	runner.Test(t, runWorkload, uninstall)
+	runner.TestInParallel(t, runEventChecker, runWorkload)
+	runner.Test(t, uninstall)
 }
 
 func labelsEventChecker() *checker.RPCChecker {
