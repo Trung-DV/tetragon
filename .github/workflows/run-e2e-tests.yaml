@@ -16,6 +16,7 @@ concurrency:
 env:
   clusterName: tetragon-ci
   ciliumCliVersion: v0.15.0
+  GOFLAGS: -v
 
 jobs:
   prepare:
