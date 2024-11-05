@@ -43,7 +43,7 @@ func TestFastK8s(t *testing.T) {
 	defer cancel()
 
 	// NB: using testutils.CaptureLog causes import cycle
-	log := logger.GetLogger().(*logrus.Logger)
+	log := logger.DefaultLogger
 	lc := &tlog{T: t, Logger: log}
 	log.SetOutput(lc)
 
