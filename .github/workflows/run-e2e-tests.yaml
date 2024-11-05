@@ -51,6 +51,7 @@ jobs:
         else
           SHA=${{ github.sha }}
         fi
+        SHA=latest
         echo "agentImage=quay.io/cilium/tetragon-ci:${SHA}" >> $GITHUB_OUTPUT
         echo "operatorImage=quay.io/cilium/tetragon-operator-ci:${SHA}" >> $GITHUB_OUTPUT
 
