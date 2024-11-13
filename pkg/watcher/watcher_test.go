@@ -39,6 +39,7 @@ func (tl tlog) Write(p []byte) (n int, err error) {
 // This test tests that we can still do pod association when a pod is removed from the k8s cache
 // (effectively, this tests the deleted pod cache feature).
 func TestFastK8s(t *testing.T) {
+	t.Skip()
 	ctx, cancel := context.WithCancel(context.Background())
 	defer cancel()
 

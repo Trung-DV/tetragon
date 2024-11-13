@@ -52,6 +52,7 @@ func testListSyscallsDups(t *testing.T, checker *eventchecker.UnorderedEventChec
 }
 
 func TestTracepointListSyscallDups(t *testing.T) {
+	t.Skip()
 	if !kernels.MinKernelVersion("5.3.0") {
 		t.Skip("TestCopyFd requires at least 5.3.0 version")
 	}

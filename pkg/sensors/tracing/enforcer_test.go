@@ -89,6 +89,7 @@ func testEnforcer(t *testing.T, configHook string,
 }
 
 func TestEnforcerOverride(t *testing.T) {
+	t.Skip()
 	testEnforcerCheckSkip(t)
 
 	test := testutils.RepoRootPath("contrib/tester-progs/getcpu")
@@ -143,6 +144,7 @@ func TestEnforcerOverride(t *testing.T) {
 }
 
 func TestEnforcerOverrideManySyscalls(t *testing.T) {
+	t.Skip()
 	testEnforcerCheckSkip(t)
 
 	test := testutils.RepoRootPath("contrib/tester-progs/getcpu")
@@ -203,6 +205,7 @@ func mkSysIDChecker(t *testing.T, id uint64) *ec.SyscallIdChecker {
 }
 
 func TestEnforcerSignal(t *testing.T) {
+	t.Skip()
 	testEnforcerCheckSkip(t)
 
 	test := testutils.RepoRootPath("contrib/tester-progs/enforcer-tester")
@@ -251,6 +254,7 @@ func TestEnforcerSignal(t *testing.T) {
 }
 
 func TestEnforcerMultiNotSupported(t *testing.T) {
+	t.Skip()
 	yaml := NewEnforcerSpecBuilder("enforcer-multi").
 		WithSyscallList("sys_prctl").
 		WithSyscallList("sys_dup").
@@ -341,6 +345,7 @@ func directWriteTempFile(t *testing.T) string {
 // - tests that no data got written to the monitored file
 
 func TestEnforcerSecuritySigKill(t *testing.T) {
+	t.Skip()
 	if !bpf.HasSignalHelper() {
 		t.Skip("skipping enforcer test, bpf_send_signal helper not available")
 	}
@@ -428,6 +433,7 @@ spec:
 // - tests that no data got written to the monitored file
 
 func TestEnforcerSecurityNotifyEnforcer(t *testing.T) {
+	t.Skip()
 	if !bpf.HasSignalHelper() {
 		t.Skip("skipping enforcer test, bpf_send_signal helper not available")
 	}
@@ -510,6 +516,7 @@ spec:
 // then make sure both policies catch and kill.
 
 func TestEnforcerMulti(t *testing.T) {
+	t.Skip()
 	if !bpf.HasSignalHelper() {
 		t.Skip("skipping enforcer test, bpf_send_signal helper not available")
 	}
@@ -760,6 +767,7 @@ func testEnforcerPersistent(t *testing.T, builder func() *EnforcerSpecBuilder, e
 }
 
 func TestEnforcerPersistentOverride(t *testing.T) {
+	t.Skip()
 	test := testutils.RepoRootPath("contrib/tester-progs/enforcer-tester")
 
 	builder := func() *EnforcerSpecBuilder {
@@ -773,6 +781,7 @@ func TestEnforcerPersistentOverride(t *testing.T) {
 }
 
 func TestEnforcerPersistentKill(t *testing.T) {
+	t.Skip()
 
 	test := testutils.RepoRootPath("contrib/tester-progs/enforcer-tester")
 

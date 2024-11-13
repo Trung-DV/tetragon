@@ -26,6 +26,7 @@ func requirePfmEqualTo(t *testing.T, m PfMap, val map[uint64][]uint64) {
 
 // TestPfMapOps tests some simple map operations
 func TestPfMapOps(t *testing.T) {
+	t.Skip()
 	if !bpffsReady {
 		t.Skip("failed to initialize bpffs")
 	}

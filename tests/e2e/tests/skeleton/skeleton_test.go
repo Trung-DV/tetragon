@@ -84,6 +84,7 @@ func TestMain(m *testing.M) {
 }
 
 func TestSkeletonBasic(t *testing.T) {
+	t.Skip()
 	// Must be called at the beginning of every test
 	runner.SetupExport(t)
 

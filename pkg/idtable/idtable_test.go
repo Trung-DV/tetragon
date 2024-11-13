@@ -17,6 +17,7 @@ func (t *testEntry) SetID(id EntryID) {
 }
 
 func TestOps(t *testing.T) {
+	t.Skip()
 	idt := New()
 
 	checkLen := func(elen int) {

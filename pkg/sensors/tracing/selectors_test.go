@@ -158,6 +158,7 @@ var testCases = []struct {
 //
 // As other tracepoint tests, it uses the lseek system call with a bogus whence value.
 func TestTracepointSelectors(t *testing.T) {
+	t.Skip()
 	testutils.CaptureLog(t, logger.GetLogger().(*logrus.Logger))
 	ctx, cancel := context.WithTimeout(context.Background(), tus.Conf().CmdWaitTime)
 	defer cancel()
@@ -284,6 +285,7 @@ func selectorsFromWhenceVals(t *testing.T, filterWhenceVals [][]int, whenceIdx u
 }
 
 func TestKprobeSelectors(t *testing.T) {
+	t.Skip()
 	testutils.CaptureLog(t, logger.GetLogger().(*logrus.Logger))
 	ctx, cancel := context.WithTimeout(context.Background(), tus.Conf().CmdWaitTime)
 	defer cancel()

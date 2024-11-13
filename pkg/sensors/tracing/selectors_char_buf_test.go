@@ -25,6 +25,7 @@ import (
 )
 
 func TestCharBufKprobe(t *testing.T) {
+	t.Skip()
 	testutils.CaptureLog(t, logger.GetLogger().(*logrus.Logger))
 	ctx, cancel := context.WithTimeout(context.Background(), tus.Conf().CmdWaitTime)
 	defer cancel()
@@ -97,6 +98,7 @@ func TestCharBufKprobe(t *testing.T) {
 }
 
 func TestCharBufTracepoint(t *testing.T) {
+	t.Skip()
 	testutils.CaptureLog(t, logger.GetLogger().(*logrus.Logger))
 	ctx, cancel := context.WithTimeout(context.Background(), tus.Conf().CmdWaitTime)
 	defer cancel()

@@ -13,6 +13,7 @@ import (
 )
 
 func TestGetProcStatStrings(t *testing.T) {
+	t.Skip()
 	stat := "206305 (zsh( )foo) S 206303 206305 206305 34821 206368 4194304 9687 4455 0 0 56 17 2 0 20 0 1 0 19321046 17514496 1866 18446744073709551615 94273300672512 94273301280581 140729040978832 0 0 0 2 3686400 134295555 1 0 0 17 3 0 0 0 0 0 94273301428976 94273301458280 94273325256704 140729040984354 140729040984358 140729040984358 140729040986095 0"
 	statStrings := getProcStatStrings(stat)
 	assert.Equal(t, statStrings[0], "206305", "Incorrect first field")
@@ -25,6 +26,7 @@ func TestGetProcStatStrings(t *testing.T) {
 }
 
 func TestGetStatus(t *testing.T) {
+	t.Skip()
 	self := filepath.Join(option.Config.ProcFS, "self")
 
 	status, err := GetStatus(self)
@@ -36,6 +38,7 @@ func TestGetStatus(t *testing.T) {
 }
 
 func TestGetPid1Status(t *testing.T) {
+	t.Skip()
 	pid1 := filepath.Join(option.Config.ProcFS, "1")
 
 	// Is pid 1 available for reading

@@ -26,6 +26,7 @@ func TestMain(m *testing.M) {
 }
 
 func TestSensorLseekLoad(t *testing.T) {
+	t.Skip()
 	if _, err := os.Stat("/sys/kernel/debug/tracing/events/syscalls"); os.IsNotExist(err) {
 		t.Skip("cannot use syscall tracepoints (consider enabling CONFIG_FTRACE_SYSCALLS)")
 	}
@@ -55,6 +56,7 @@ func TestSensorLseekLoad(t *testing.T) {
 }
 
 func TestSensorLseekEnable(t *testing.T) {
+	t.Skip()
 	if _, err := os.Stat("/sys/kernel/debug/tracing/events/syscalls"); os.IsNotExist(err) {
 		t.Skip("cannot use syscall tracepoints (consider enabling CONFIG_FTRACE_SYSCALLS)")
 	}

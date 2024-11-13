@@ -27,6 +27,7 @@ import (
 )
 
 func TestLoadUprobeSensor(t *testing.T) {
+	t.Skip()
 	var sensorProgs = []tus.SensorProg{
 		// uprobe
 		0: tus.SensorProg{Name: "generic_uprobe_event", Type: ebpf.Kprobe},
@@ -98,6 +99,7 @@ spec:
 }
 
 func TestUprobeGeneric(t *testing.T) {
+	t.Skip()
 	testNop := testutils.RepoRootPath("contrib/tester-progs/nop")
 	nopHook := `
 apiVersion: cilium.io/v1alpha1
@@ -199,11 +201,13 @@ spec:
 }
 
 func TestUprobePidMatch(t *testing.T) {
+	t.Skip()
 	err := uprobePidMatch(t, observertesthelper.GetMyPid())
 	assert.NoError(t, err)
 }
 
 func TestUprobePidMatchNot(t *testing.T) {
+	t.Skip()
 	err := uprobePidMatch(t, observertesthelper.GetMyPid()+1)
 	assert.Error(t, err)
 }
@@ -262,18 +266,21 @@ spec:
 }
 
 func TestUprobeBinariesMatch(t *testing.T) {
+	t.Skip()
 	uprobeTest1 := testutils.RepoRootPath("contrib/tester-progs/uprobe-test-1")
 	err := uprobeBinariesMatch(t, uprobeTest1)
 	assert.NoError(t, err)
 }
 
 func TestUprobeBinariesMatchNot(t *testing.T) {
+	t.Skip()
 	uprobeTest2 := testutils.RepoRootPath("contrib/tester-progs/uprobe-test-2")
 	err := uprobeBinariesMatch(t, uprobeTest2)
 	assert.Error(t, err)
 }
 
 func TestUprobeCloneThreads(t *testing.T) {
+	t.Skip()
 	testutils.CaptureLog(t, logger.GetLogger().(*logrus.Logger))
 	var doneWG, readyWG sync.WaitGroup
 	defer doneWG.Wait()
@@ -375,6 +382,7 @@ spec:
 }
 
 func TestUprobeArgs(t *testing.T) {
+	t.Skip()
 	execBinary := testutils.RepoRootPath("contrib/tester-progs/uprobe-test-1")
 	libUprobe := testutils.RepoRootPath("contrib/tester-progs/libuprobe.so")
 

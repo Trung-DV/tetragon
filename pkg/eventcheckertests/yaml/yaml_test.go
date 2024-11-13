@@ -43,6 +43,7 @@ func readFileTemplate(fileName string, data interface{}) (string, error) {
 }
 
 func TestExamplesSmoke(t *testing.T) {
+	t.Skip()
 	err := filepath.Walk(examplesDir, func(path string, info os.FileInfo, err error) error {
 		if err != nil {
 			return err

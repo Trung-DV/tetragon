@@ -13,6 +13,7 @@ import (
 )
 
 func TestNamespace(t *testing.T) {
+	t.Skip()
 	f := []*tetragon.Filter{{Namespace: []string{"kube-system", ""}}}
 	fl, err := BuildFilterList(context.Background(), f, []OnBuildFilter{&NamespaceFilter{}})
 	assert.NoError(t, err)

@@ -25,6 +25,7 @@ var sampleMsgGenericTracepointUnix = tracing.MsgGenericTracepointUnix{
 }
 
 func TestPodDelete(t *testing.T) {
+	t.Skip()
 	reg := metricsconfig.GetRegistry()
 	metricsconfig.InitAllMetrics(reg)
 

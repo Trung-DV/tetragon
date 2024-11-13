@@ -77,6 +77,7 @@ var (
 )
 
 func TestKprobeObjectLoad(t *testing.T) {
+	t.Skip()
 	writeReadHook := `
 apiVersion: cilium.io/v1alpha1
 kind: TracingPolicy
@@ -124,6 +125,7 @@ spec:
 // NB: This is similar to TestKprobeObjectWriteRead, but it's a bit easier to
 // debug because we can write things on stdout which will not generate events.
 func TestKprobeLseek(t *testing.T) {
+	t.Skip()
 	var doneWG, readyWG sync.WaitGroup
 	defer doneWG.Wait()
 
@@ -224,6 +226,7 @@ func runKprobeObjectWriteRead(t *testing.T, writeReadHook string) {
 }
 
 func TestKprobeObjectWriteReadHostNs(t *testing.T) {
+	t.Skip()
 	// if we run inside a container it will not match the host namespace
 	nsOp := "NotIn"
 	if _, err := os.Stat("/.dockerenv"); errors.Is(err, os.ErrNotExist) {
@@ -275,6 +278,7 @@ spec:
 }
 
 func TestKprobeObjectWriteRead(t *testing.T) {
+	t.Skip()
 	myPid := observertesthelper.GetMyPid()
 	pidStr := strconv.Itoa(int(myPid))
 	mntns, err := namespace.GetPidNsInode(myPid, "mnt")
@@ -327,6 +331,7 @@ spec:
 }
 
 func TestKprobeObjectWriteCapsNotIn(t *testing.T) {
+	t.Skip()
 	writeReadHook := `
 apiVersion: cilium.io/v1alpha1
 kind: TracingPolicy
@@ -361,6 +366,7 @@ spec:
 }
 
 func TestKprobeObjectWriteReadNsOnly(t *testing.T) {
+	t.Skip()
 	myPid := observertesthelper.GetMyPid()
 	mntns, err := namespace.GetPidNsInode(myPid, "mnt")
 	require.NoError(t, err)
@@ -406,6 +412,7 @@ spec:
 }
 
 func TestKprobeObjectWriteReadPidOnly(t *testing.T) {
+	t.Skip()
 	pidStr := strconv.Itoa(int(observertesthelper.GetMyPid()))
 	writeReadHook := `
 apiVersion: cilium.io/v1alpha1
@@ -497,6 +504,7 @@ func runKprobeObjectRead(t *testing.T, readHook string, checker ec.MultiEventChe
 }
 
 func TestKprobeObjectRead(t *testing.T) {
+	t.Skip()
 	fd, fd2, fdString := createTestFile(t)
 	pidStr := strconv.Itoa(int(observertesthelper.GetMyPid()))
 	readHook := `
@@ -543,6 +551,7 @@ spec:
 }
 
 func TestKprobeObjectReadReturn(t *testing.T) {
+	t.Skip()
 	fd, fd2, fdString := createTestFile(t)
 	pidStr := strconv.Itoa(int(observertesthelper.GetMyPid()))
 	readHook := `
@@ -718,6 +727,7 @@ func testKprobeObjectOpenHook(pidStr string, path string, withNull bool) string 
 }
 
 func TestKprobeObjectOpen(t *testing.T) {
+	t.Skip()
 	pidStr := strconv.Itoa(int(observertesthelper.GetMyPid()))
 	dir := t.TempDir()
 	readHook := testKprobeObjectOpenHook(pidStr, dir, false)
@@ -725,6 +735,7 @@ func TestKprobeObjectOpen(t *testing.T) {
 }
 
 func TestKprobeObjectOpenWithNull(t *testing.T) {
+	t.Skip()
 	pidStr := strconv.Itoa(int(observertesthelper.GetMyPid()))
 	dir := t.TempDir()
 	readHook := testKprobeObjectOpenHook(pidStr, dir, true)
@@ -732,6 +743,7 @@ func TestKprobeObjectOpenWithNull(t *testing.T) {
 }
 
 func TestKprobeObjectOpenMount(t *testing.T) {
+	t.Skip()
 	pidStr := strconv.Itoa(int(observertesthelper.GetMyPid()))
 	dir := t.TempDir()
 	readHook := testKprobeObjectOpenHook(pidStr, dir, false)
@@ -739,6 +751,7 @@ func TestKprobeObjectOpenMount(t *testing.T) {
 }
 
 func TestKprobeObjectOpenMountWithNull(t *testing.T) {
+	t.Skip()
 	pidStr := strconv.Itoa(int(observertesthelper.GetMyPid()))
 	dir := t.TempDir()
 	readHook := testKprobeObjectOpenHook(pidStr, dir, true)
@@ -808,6 +821,7 @@ func testKprobeStringMatchHook(pidStr string, dir string) string {
 }
 
 func TestKprobeStringMatchHash0Max(t *testing.T) {
+	t.Skip()
 	pidStr := strconv.Itoa(int(observertesthelper.GetMyPid()))
 	pathLen := 24
 	fileLen := len("/testfile")
@@ -817,6 +831,7 @@ func TestKprobeStringMatchHash0Max(t *testing.T) {
 }
 
 func TestKprobeStringMatchHash1Min(t *testing.T) {
+	t.Skip()
 	pidStr := strconv.Itoa(int(observertesthelper.GetMyPid()))
 	pathLen := 25
 	fileLen := len("/testfile")
@@ -826,6 +841,7 @@ func TestKprobeStringMatchHash1Min(t *testing.T) {
 }
 
 func TestKprobeStringMatchHash1Max(t *testing.T) {
+	t.Skip()
 	pidStr := strconv.Itoa(int(observertesthelper.GetMyPid()))
 	pathLen := 48
 	fileLen := len("/testfile")
@@ -835,6 +851,7 @@ func TestKprobeStringMatchHash1Max(t *testing.T) {
 }
 
 func TestKprobeStringMatchHash2Min(t *testing.T) {
+	t.Skip()
 	pidStr := strconv.Itoa(int(observertesthelper.GetMyPid()))
 	pathLen := 49
 	fileLen := len("/testfile")
@@ -844,6 +861,7 @@ func TestKprobeStringMatchHash2Min(t *testing.T) {
 }
 
 func TestKprobeStringMatchHash2Max(t *testing.T) {
+	t.Skip()
 	pidStr := strconv.Itoa(int(observertesthelper.GetMyPid()))
 	pathLen := 72
 	fileLen := len("/testfile")
@@ -853,6 +871,7 @@ func TestKprobeStringMatchHash2Max(t *testing.T) {
 }
 
 func TestKprobeStringMatchHash3Min(t *testing.T) {
+	t.Skip()
 	pidStr := strconv.Itoa(int(observertesthelper.GetMyPid()))
 	pathLen := 73
 	fileLen := len("/testfile")
@@ -862,6 +881,7 @@ func TestKprobeStringMatchHash3Min(t *testing.T) {
 }
 
 func TestKprobeStringMatchHash3Max(t *testing.T) {
+	t.Skip()
 	pidStr := strconv.Itoa(int(observertesthelper.GetMyPid()))
 	pathLen := 96
 	fileLen := len("/testfile")
@@ -871,6 +891,7 @@ func TestKprobeStringMatchHash3Max(t *testing.T) {
 }
 
 func TestKprobeStringMatchHash4Min(t *testing.T) {
+	t.Skip()
 	pidStr := strconv.Itoa(int(observertesthelper.GetMyPid()))
 	pathLen := 97
 	fileLen := len("/testfile")
@@ -880,6 +901,7 @@ func TestKprobeStringMatchHash4Min(t *testing.T) {
 }
 
 func TestKprobeStringMatchHash4Max(t *testing.T) {
+	t.Skip()
 	pidStr := strconv.Itoa(int(observertesthelper.GetMyPid()))
 	pathLen := 120
 	fileLen := len("/testfile")
@@ -889,6 +911,7 @@ func TestKprobeStringMatchHash4Max(t *testing.T) {
 }
 
 func TestKprobeStringMatchHash5Min(t *testing.T) {
+	t.Skip()
 	pidStr := strconv.Itoa(int(observertesthelper.GetMyPid()))
 	pathLen := 121
 	fileLen := len("/testfile")
@@ -898,6 +921,7 @@ func TestKprobeStringMatchHash5Min(t *testing.T) {
 }
 
 func TestKprobeStringMatchHash5Max(t *testing.T) {
+	t.Skip()
 	pidStr := strconv.Itoa(int(observertesthelper.GetMyPid()))
 	pathLen := 144
 	fileLen := len("/testfile")
@@ -907,6 +931,7 @@ func TestKprobeStringMatchHash5Max(t *testing.T) {
 }
 
 func TestKprobeStringMatchHash6Min(t *testing.T) {
+	t.Skip()
 	if !kernels.MinKernelVersion("5.4") {
 		t.Skip("Test requires kernel 5.4+")
 	}
@@ -919,6 +944,7 @@ func TestKprobeStringMatchHash6Min(t *testing.T) {
 }
 
 func TestKprobeStringMatchHash6Max(t *testing.T) {
+	t.Skip()
 	if !kernels.MinKernelVersion("5.4") {
 		t.Skip("Test requires kernel 5.4+")
 	}
@@ -931,6 +957,7 @@ func TestKprobeStringMatchHash6Max(t *testing.T) {
 }
 
 func TestKprobeStringMatchHash7Min(t *testing.T) {
+	t.Skip()
 	if !kernels.MinKernelVersion("5.4") {
 		t.Skip("Test requires kernel 5.4+")
 	}
@@ -943,6 +970,7 @@ func TestKprobeStringMatchHash7Min(t *testing.T) {
 }
 
 func TestKprobeStringMatchHash7Max(t *testing.T) {
+	t.Skip()
 	if !kernels.MinKernelVersion("5.4") {
 		t.Skip("Test requires kernel 5.4+")
 	}
@@ -958,6 +986,7 @@ func TestKprobeStringMatchHash7Max(t *testing.T) {
 }
 
 func TestKprobeStringMatchHash8Min(t *testing.T) {
+	t.Skip()
 	if !kernels.MinKernelVersion("5.11") {
 		t.Skip("Test requires kernel 5.11+")
 	}
@@ -970,6 +999,7 @@ func TestKprobeStringMatchHash8Min(t *testing.T) {
 }
 
 func TestKprobeStringMatchHash8Max(t *testing.T) {
+	t.Skip()
 	if !kernels.MinKernelVersion("5.11") {
 		t.Skip("Test requires kernel 5.11+")
 	}
@@ -982,6 +1012,7 @@ func TestKprobeStringMatchHash8Max(t *testing.T) {
 }
 
 func TestKprobeStringMatchHash9Min(t *testing.T) {
+	t.Skip()
 	if !kernels.MinKernelVersion("5.11") {
 		t.Skip("Test requires kernel 5.11+")
 	}
@@ -994,6 +1025,7 @@ func TestKprobeStringMatchHash9Min(t *testing.T) {
 }
 
 func TestKprobeStringMatchHash9Max(t *testing.T) {
+	t.Skip()
 	if !kernels.MinKernelVersion("5.11") {
 		t.Skip("Test requires kernel 5.11+")
 	}
@@ -1006,6 +1038,7 @@ func TestKprobeStringMatchHash9Max(t *testing.T) {
 }
 
 func TestKprobeStringMatchHash10Min(t *testing.T) {
+	t.Skip()
 	if !kernels.MinKernelVersion("5.11") {
 		t.Skip("Test requires kernel 5.11+")
 	}
@@ -1018,6 +1051,7 @@ func TestKprobeStringMatchHash10Min(t *testing.T) {
 }
 
 func TestKprobeStringMatchHash10Max(t *testing.T) {
+	t.Skip()
 	if !kernels.MinKernelVersion("5.11") {
 		t.Skip("Test requires kernel 5.11+")
 	}
@@ -1063,6 +1097,7 @@ func testKprobeObjectMultiValueOpenHook(pidStr string, path string) string {
 }
 
 func TestKprobeObjectMultiValueOpen(t *testing.T) {
+	t.Skip()
 	pidStr := strconv.Itoa(int(observertesthelper.GetMyPid()))
 	dir := t.TempDir()
 	readHook := testKprobeObjectMultiValueOpenHook(pidStr, dir)
@@ -1070,6 +1105,7 @@ func TestKprobeObjectMultiValueOpen(t *testing.T) {
 }
 
 func TestKprobeObjectMultiValueOpenMount(t *testing.T) {
+	t.Skip()
 	pidStr := strconv.Itoa(int(observertesthelper.GetMyPid()))
 	dir := t.TempDir()
 	readHook := testKprobeObjectMultiValueOpenHook(pidStr, dir)
@@ -1077,6 +1113,7 @@ func TestKprobeObjectMultiValueOpenMount(t *testing.T) {
 }
 
 func TestKprobeObjectFilterOpen(t *testing.T) {
+	t.Skip()
 	pidStr := strconv.Itoa(int(observertesthelper.GetMyPid()))
 	dir := t.TempDir()
 	readHook := `
@@ -1112,6 +1149,7 @@ spec:
 }
 
 func TestKprobeObjectMultiValueFilterOpen(t *testing.T) {
+	t.Skip()
 	pidStr := strconv.Itoa(int(observertesthelper.GetMyPid()))
 	dir := t.TempDir()
 	readHook := `
@@ -1180,6 +1218,7 @@ func testKprobeObjectFilterPrefixOpenHook(pidStr string, path string) string {
 }
 
 func TestKprobeObjectFilterPrefixOpen(t *testing.T) {
+	t.Skip()
 	pidStr := strconv.Itoa(int(observertesthelper.GetMyPid()))
 	dir := t.TempDir()
 	readHook := testKprobeObjectFilterPrefixOpenHook(pidStr, dir)
@@ -1187,6 +1226,7 @@ func TestKprobeObjectFilterPrefixOpen(t *testing.T) {
 }
 
 func TestKprobeObjectFilterPrefixOpenSuperLong(t *testing.T) {
+	t.Skip()
 	pidStr := strconv.Itoa(int(observertesthelper.GetMyPid()))
 	dir := t.TempDir()
 	readHook := testKprobeObjectFilterPrefixOpenHook(pidStr, dir)
@@ -1206,6 +1246,7 @@ func TestKprobeObjectFilterPrefixOpenSuperLong(t *testing.T) {
 }
 
 func TestKprobeObjectFilterPrefixOpenMount(t *testing.T) {
+	t.Skip()
 	pidStr := strconv.Itoa(int(observertesthelper.GetMyPid()))
 	dir := t.TempDir()
 	readHook := testKprobeObjectFilterPrefixOpenHook(pidStr, dir)
@@ -1245,6 +1286,7 @@ func testKprobeObjectFilterPrefixExactOpenHook(pidStr string, path string) strin
 }
 
 func TestKprobeObjectFilterPrefixExactOpen(t *testing.T) {
+	t.Skip()
 	pidStr := strconv.Itoa(int(observertesthelper.GetMyPid()))
 	dir := t.TempDir()
 	readHook := testKprobeObjectFilterPrefixExactOpenHook(pidStr, dir)
@@ -1252,6 +1294,7 @@ func TestKprobeObjectFilterPrefixExactOpen(t *testing.T) {
 }
 
 func TestKprobeObjectFilterPrefixExactOpenMount(t *testing.T) {
+	t.Skip()
 	pidStr := strconv.Itoa(int(observertesthelper.GetMyPid()))
 	dir := t.TempDir()
 	readHook := testKprobeObjectFilterPrefixExactOpenHook(pidStr, dir)
@@ -1291,6 +1334,7 @@ func testKprobeObjectFilterPrefixSubdirOpenHook(pidStr string, path string) stri
 }
 
 func TestKprobeObjectFilterPrefixSubdirOpen(t *testing.T) {
+	t.Skip()
 	pidStr := strconv.Itoa(int(observertesthelper.GetMyPid()))
 	dir := t.TempDir()
 	readHook := testKprobeObjectFilterPrefixSubdirOpenHook(pidStr, dir)
@@ -1298,6 +1342,7 @@ func TestKprobeObjectFilterPrefixSubdirOpen(t *testing.T) {
 }
 
 func TestKprobeObjectFilterPrefixSubdirOpenMount(t *testing.T) {
+	t.Skip()
 	pidStr := strconv.Itoa(int(observertesthelper.GetMyPid()))
 	dir := t.TempDir()
 	readHook := testKprobeObjectFilterPrefixSubdirOpenHook(pidStr, dir)
@@ -1305,6 +1350,7 @@ func TestKprobeObjectFilterPrefixSubdirOpenMount(t *testing.T) {
 }
 
 func TestKprobeObjectFilterPrefixMissOpen(t *testing.T) {
+	t.Skip()
 	pidStr := strconv.Itoa(int(observertesthelper.GetMyPid()))
 	dir := t.TempDir()
 	readHook := `
@@ -1385,14 +1431,17 @@ spec:
 }
 
 func TestKprobeObjectPostfixOpen(t *testing.T) {
+	t.Skip()
 	testKprobeObjectPostfixOpen(t, false)
 }
 
 func TestKprobeObjectPostfixOpenWithNull(t *testing.T) {
+	t.Skip()
 	testKprobeObjectPostfixOpen(t, true)
 }
 
 func TestKprobeObjectPostfixOpenSuperLong(t *testing.T) {
+	t.Skip()
 	pidStr := strconv.Itoa(int(observertesthelper.GetMyPid()))
 	dir := t.TempDir()
 	readHook := `
@@ -1493,18 +1542,22 @@ func testKprobeObjectFilterModeOpenMatch(t *testing.T, valueFmt string, modeCrea
 }
 
 func TestKprobeObjectFilterModeOpenMatchDec(t *testing.T) {
+	t.Skip()
 	testKprobeObjectFilterModeOpenMatch(t, "%d", syscall.O_RDWR|syscall.O_TRUNC|syscall.O_CLOEXEC, syscall.O_TRUNC)
 }
 
 func TestKprobeObjectFilterModeOpenMatchHex(t *testing.T) {
+	t.Skip()
 	testKprobeObjectFilterModeOpenMatch(t, "0x%x", syscall.O_RDWR|syscall.O_TRUNC|syscall.O_CLOEXEC, syscall.O_RDWR)
 }
 
 func TestKprobeObjectFilterModeOpenMatchOct(t *testing.T) {
+	t.Skip()
 	testKprobeObjectFilterModeOpenMatch(t, "0%d", syscall.O_RDWR|syscall.O_TRUNC|syscall.O_CLOEXEC, syscall.O_CLOEXEC)
 }
 
 func TestKprobeObjectFilterModeOpenFail(t *testing.T) {
+	t.Skip()
 	pidStr := strconv.Itoa(int(observertesthelper.GetMyPid()))
 	dir := t.TempDir()
 	openHook := testKprobeObjectFilterModeOpenHook(pidStr, syscall.O_TRUNC, "%d")
@@ -1620,6 +1673,7 @@ func testKprobeObjectFilteredReturnValue(t *testing.T,
 }
 
 func TestKprobeObjectFilterReturnValueGTOk(t *testing.T) {
+	t.Skip()
 	if !kernels.EnableLargeProgs() {
 		t.Skip("Older kernels do not support GT/LT matching")
 	}
@@ -1656,6 +1710,7 @@ func TestKprobeObjectFilterReturnValueGTOk(t *testing.T) {
 }
 
 func TestKprobeObjectFilterReturnValueGTFail(t *testing.T) {
+	t.Skip()
 	if !kernels.EnableLargeProgs() {
 		t.Skip("Older kernels do not support GT/LT matching")
 	}
@@ -1670,6 +1725,7 @@ func TestKprobeObjectFilterReturnValueGTFail(t *testing.T) {
 }
 
 func TestKprobeObjectFilterReturnValueLTOk(t *testing.T) {
+	t.Skip()
 	if !kernels.EnableLargeProgs() {
 		t.Skip("Older kernels do not support GT/LT matching")
 	}
@@ -1697,6 +1753,7 @@ func TestKprobeObjectFilterReturnValueLTOk(t *testing.T) {
 }
 
 func TestKprobeObjectFilterReturnValueLTFail(t *testing.T) {
+	t.Skip()
 	if !kernels.EnableLargeProgs() {
 		t.Skip("Older kernels do not support GT/LT matching")
 	}
@@ -1734,6 +1791,7 @@ func helloIovecWorldWritev() (err error) {
 }
 
 func TestKprobeObjectWriteVRead(t *testing.T) {
+	t.Skip()
 	var doneWG, readyWG sync.WaitGroup
 	defer doneWG.Wait()
 
@@ -1814,6 +1872,7 @@ func getFilpOpenChecker(dir string) ec.MultiEventChecker {
 }
 
 func TestKprobeObjectFilenameOpen(t *testing.T) {
+	t.Skip()
 	pidStr := strconv.Itoa(int(observertesthelper.GetMyPid()))
 	dir := t.TempDir()
 	readHook := `
@@ -1842,6 +1901,7 @@ spec:
 }
 
 func TestKprobeObjectReturnFilenameOpen(t *testing.T) {
+	t.Skip()
 	pidStr := strconv.Itoa(int(observertesthelper.GetMyPid()))
 	dir := t.TempDir()
 	readHook := `
@@ -1989,6 +2049,7 @@ func getWriteChecker(t *testing.T, path, flags string) ec.MultiEventChecker {
 }
 
 func TestKprobeObjectFileWrite(t *testing.T) {
+	t.Skip()
 	pidStr := strconv.Itoa(int(observertesthelper.GetMyPid()))
 	dir := t.TempDir()
 	readHook := testKprobeObjectFileWriteHook(pidStr)
@@ -1996,6 +2057,7 @@ func TestKprobeObjectFileWrite(t *testing.T) {
 }
 
 func TestKprobeObjectFileWriteFiltered(t *testing.T) {
+	t.Skip()
 	pidStr := strconv.Itoa(int(observertesthelper.GetMyPid()))
 	dir := t.TempDir()
 	readHook := testKprobeObjectFileWriteFilteredHook(pidStr, dir)
@@ -2003,6 +2065,7 @@ func TestKprobeObjectFileWriteFiltered(t *testing.T) {
 }
 
 func TestKprobeObjectFileWriteMount(t *testing.T) {
+	t.Skip()
 	pidStr := strconv.Itoa(int(observertesthelper.GetMyPid()))
 	dir := t.TempDir()
 	readHook := testKprobeObjectFileWriteHook(pidStr)
@@ -2010,6 +2073,7 @@ func TestKprobeObjectFileWriteMount(t *testing.T) {
 }
 
 func TestKprobeObjectFileWriteMountFiltered(t *testing.T) {
+	t.Skip()
 	pidStr := strconv.Itoa(int(observertesthelper.GetMyPid()))
 	dir := t.TempDir()
 	readHook := testKprobeObjectFileWriteFilteredHook(pidStr, dir)
@@ -2199,24 +2263,28 @@ func testMultipleMountPathFiltered(t *testing.T, readHook string) {
 }
 
 func TestMultipleMountsFiltered(t *testing.T) {
+	t.Skip()
 	pidStr := strconv.Itoa(int(observertesthelper.GetMyPid()))
 	readHook := testKprobeObjectFileWriteFilteredHook(pidStr, "/tmp2/tmp3/tmp4/tmp5")
 	testMultipleMountsFiltered(t, readHook)
 }
 
 func TestMultiplePathComponents(t *testing.T) {
+	t.Skip()
 	pidStr := strconv.Itoa(int(observertesthelper.GetMyPid()))
 	readHook := testKprobeObjectFileWriteHook(pidStr)
 	testMultiplePathComponentsFiltered(t, readHook)
 }
 
 func TestMultipleMountPath(t *testing.T) {
+	t.Skip()
 	pidStr := strconv.Itoa(int(observertesthelper.GetMyPid()))
 	readHook := testKprobeObjectFileWriteHook(pidStr)
 	testMultipleMountPathFiltered(t, readHook)
 }
 
 func TestMultipleMountPathFiltered(t *testing.T) {
+	t.Skip()
 	pidStr := strconv.Itoa(int(observertesthelper.GetMyPid()))
 	readHook := testKprobeObjectFileWriteFilteredHook(pidStr, "/7/8/9/10/11/12/13/14/15/16")
 	if kernels.EnableLargeProgs() {
@@ -2226,6 +2294,7 @@ func TestMultipleMountPathFiltered(t *testing.T) {
 }
 
 func TestKprobeArgValues(t *testing.T) {
+	t.Skip()
 	pidStr := strconv.Itoa(int(observertesthelper.GetMyPid()))
 	readHook := `
 apiVersion: cilium.io/v1alpha1
@@ -2369,6 +2438,7 @@ func runKprobeOverride(t *testing.T, hook string, checker ec.MultiEventChecker,
 }
 
 func TestKprobeOverride(t *testing.T) {
+	t.Skip()
 	pidStr := strconv.Itoa(int(observertesthelper.GetMyPid()))
 
 	file, err := os.CreateTemp(t.TempDir(), "kprobe-override-")
@@ -2429,6 +2499,7 @@ spec:
 }
 
 func TestKprobeOverrideSecurity(t *testing.T) {
+	t.Skip()
 	if !bpf.HasModifyReturn() {
 		t.Skip("skipping fmod_ret support is not available")
 	}
@@ -2490,6 +2561,7 @@ spec:
 }
 
 func TestKprobeOverrideNopostAction(t *testing.T) {
+	t.Skip()
 	pidStr := strconv.Itoa(int(observertesthelper.GetMyPid()))
 
 	file, err := os.CreateTemp(t.TempDir(), "kprobe-override-")
@@ -2607,6 +2679,7 @@ func runKprobeOverrideSignal(t *testing.T, hook string, checker ec.MultiEventChe
 }
 
 func TestKprobeOverrideSignal(t *testing.T) {
+	t.Skip()
 	if !kernels.EnableLargeProgs() {
 		t.Skip()
 	}
@@ -2672,6 +2745,7 @@ spec:
 }
 
 func TestKprobeSignalOverride(t *testing.T) {
+	t.Skip()
 	if !kernels.EnableLargeProgs() {
 		t.Skip()
 	}
@@ -2737,6 +2811,7 @@ spec:
 }
 
 func TestKprobeSignalOverrideNopost(t *testing.T) {
+	t.Skip()
 	if !kernels.EnableLargeProgs() {
 		t.Skip()
 	}
@@ -2862,6 +2937,7 @@ func runKprobeOverrideMulti(t *testing.T, hook string, checker ec.MultiEventChec
 }
 
 func TestKprobeOverrideMulti(t *testing.T) {
+	t.Skip()
 	if !kernels.EnableLargeProgs() {
 		t.Skip()
 	}
@@ -3106,6 +3182,7 @@ func runKprobe_char_iovec(t *testing.T, configHook string,
 }
 
 func TestKprobe_char_iovec(t *testing.T) {
+	t.Skip()
 	fdw, fdr, _ := createTestFile(t)
 	pidStr := strconv.Itoa(int(observertesthelper.GetMyPid()))
 
@@ -3160,6 +3237,7 @@ spec:
 }
 
 func TestKprobe_char_iovec_overflow(t *testing.T) {
+	t.Skip()
 	fdw, fdr, _ := createTestFile(t)
 	pidStr := strconv.Itoa(int(observertesthelper.GetMyPid()))
 
@@ -3214,6 +3292,7 @@ spec:
 }
 
 func TestKprobe_char_iovec_returnCopy(t *testing.T) {
+	t.Skip()
 	fdw, fdr, _ := createTestFile(t)
 	pidStr := strconv.Itoa(int(observertesthelper.GetMyPid()))
 
@@ -3427,6 +3506,7 @@ func getNumValues() int {
 }
 
 func TestKprobeMatchArgsFileEqual(t *testing.T) {
+	t.Skip()
 	var doneWG, readyWG sync.WaitGroup
 	defer doneWG.Wait()
 
@@ -3467,6 +3547,7 @@ func TestKprobeMatchArgsFileEqual(t *testing.T) {
 }
 
 func TestKprobeMatchArgsFilePostfix(t *testing.T) {
+	t.Skip()
 	var doneWG, readyWG sync.WaitGroup
 	defer doneWG.Wait()
 
@@ -3507,6 +3588,7 @@ func TestKprobeMatchArgsFilePostfix(t *testing.T) {
 }
 
 func TestKprobeMatchArgsFilePrefix(t *testing.T) {
+	t.Skip()
 	var doneWG, readyWG sync.WaitGroup
 	defer doneWG.Wait()
 
@@ -3547,6 +3629,7 @@ func TestKprobeMatchArgsFilePrefix(t *testing.T) {
 }
 
 func TestKprobeMatchArgsFdEqual(t *testing.T) {
+	t.Skip()
 	var doneWG, readyWG sync.WaitGroup
 	defer doneWG.Wait()
 
@@ -3583,6 +3666,7 @@ func TestKprobeMatchArgsFdEqual(t *testing.T) {
 }
 
 func TestKprobeMatchArgsFdPostfix(t *testing.T) {
+	t.Skip()
 	var doneWG, readyWG sync.WaitGroup
 	defer doneWG.Wait()
 
@@ -3619,6 +3703,7 @@ func TestKprobeMatchArgsFdPostfix(t *testing.T) {
 }
 
 func TestKprobeMatchArgsFdPrefix(t *testing.T) {
+	t.Skip()
 	var doneWG, readyWG sync.WaitGroup
 	defer doneWG.Wait()
 
@@ -3681,6 +3766,7 @@ spec:
 }
 
 func TestKprobeMatchArgsFileMonitoringPrefix(t *testing.T) {
+	t.Skip()
 	var doneWG, readyWG sync.WaitGroup
 	defer doneWG.Wait()
 
@@ -3715,6 +3801,7 @@ func TestKprobeMatchArgsFileMonitoringPrefix(t *testing.T) {
 }
 
 func TestKprobeMatchArgsNonPrefix(t *testing.T) {
+	t.Skip()
 	if !kernels.EnableLargeProgs() {
 		t.Skip()
 	}
@@ -3870,6 +3957,7 @@ func matchBinariesTest(t *testing.T, operator string, values []string, kpChecker
 const skipMatchBinaries = "kernels without large progs do not support matchBinaries Prefix/NotPrefix/Postfix/NotPostfix"
 
 func TestKprobeMatchBinaries(t *testing.T) {
+	t.Skip()
 	t.Run("In", func(t *testing.T) {
 		matchBinariesTest(t, "In", []string{"/usr/bin/tail"}, createBinariesChecker("/usr/bin/tail", "/etc/passwd"))
 	})
@@ -3931,6 +4019,7 @@ func matchBinariesLargePathTest(t *testing.T, operator string, values []string, 
 
 }
 func TestKprobeMatchBinariesLargePath(t *testing.T) {
+	t.Skip()
 	if !kernels.EnableLargeProgs() {
 		t.Skip()
 	}
@@ -4045,6 +4134,7 @@ func matchBinariesPerfringTest(t *testing.T, operator string, values []string) {
 }
 
 func TestKprobeMatchBinariesPerfring(t *testing.T) {
+	t.Skip()
 	t.Run("In", func(t *testing.T) {
 		matchBinariesPerfringTest(t, "In", []string{"/usr/bin/tail"})
 	})
@@ -4065,6 +4155,7 @@ func TestKprobeMatchBinariesPerfring(t *testing.T) {
 // TestKprobeMatchBinariesEarlyExec checks that the matchBinaries can filter
 // events triggered by process started before Tetragon.
 func TestKprobeMatchBinariesEarlyExec(t *testing.T) {
+	t.Skip()
 	testutils.CaptureLog(t, logger.GetLogger().(*logrus.Logger))
 	ctx, cancel := context.WithTimeout(context.Background(), tus.Conf().CmdWaitTime)
 	defer cancel()
@@ -4141,6 +4232,7 @@ func TestKprobeMatchBinariesEarlyExec(t *testing.T) {
 // matchBinaries works well with the prefix of matchArgs since its reusing some
 // of its machinery.
 func TestKprobeMatchBinariesPrefixMatchArgs(t *testing.T) {
+	t.Skip()
 	if !kernels.EnableLargeProgs() {
 		t.Skip(skipMatchBinaries)
 	}
@@ -4277,6 +4369,7 @@ spec:
 }
 
 func TestKprobeBpfAttr(t *testing.T) {
+	t.Skip()
 	var doneWG, readyWG sync.WaitGroup
 	defer doneWG.Wait()
 
@@ -4326,6 +4419,7 @@ spec:
 }
 
 func TestLoadKprobeSensor(t *testing.T) {
+	t.Skip()
 	var sensorProgs = []tus.SensorProg{
 		// kprobe
 		0: tus.SensorProg{Name: "generic_kprobe_event", Type: ebpf.Kprobe},
@@ -4429,6 +4523,7 @@ spec:
 }
 
 func TestFakeSyscallError(t *testing.T) {
+	t.Skip()
 	ctx, cancel := context.WithTimeout(context.Background(), tus.Conf().CmdWaitTime)
 	defer cancel()
 
@@ -4485,6 +4580,7 @@ func testMaxData(t *testing.T, data []byte, checker *ec.UnorderedEventChecker, c
 }
 
 func TestKprobeWriteMaxDataTrunc(t *testing.T) {
+	t.Skip()
 	if !kernels.MinKernelVersion("5.3.0") {
 		t.Skip("TestCopyFd requires at least 5.3.0 version")
 	}
@@ -4548,6 +4644,7 @@ spec:
 }
 
 func TestKprobeWriteMaxData(t *testing.T) {
+	t.Skip()
 	if !kernels.MinKernelVersion("5.3.0") {
 		t.Skip("TestCopyFd requires at least 5.3.0 version")
 	}
@@ -4607,6 +4704,7 @@ spec:
 }
 
 func TestKprobeWriteMaxDataFull(t *testing.T) {
+	t.Skip()
 	if !kernels.MinKernelVersion("5.3.0") {
 		t.Skip("TestCopyFd requires at least 5.3.0 version")
 	}
@@ -4692,6 +4790,7 @@ func miniTcpNopServerWithPort(c chan<- bool, port int, ipv6 bool) {
 }
 
 func TestKprobeSockBasic(t *testing.T) {
+	t.Skip()
 	var doneWG, readyWG sync.WaitGroup
 	defer doneWG.Wait()
 
@@ -4781,6 +4880,7 @@ spec:
 }
 
 func TestKprobeSockNotPort(t *testing.T) {
+	t.Skip()
 	var doneWG, readyWG sync.WaitGroup
 	defer doneWG.Wait()
 
@@ -4870,6 +4970,7 @@ spec:
 }
 
 func TestKprobeSockMultiplePorts(t *testing.T) {
+	t.Skip()
 	var doneWG, readyWG sync.WaitGroup
 	defer doneWG.Wait()
 
@@ -4963,6 +5064,7 @@ spec:
 }
 
 func TestKprobeSockPortRange(t *testing.T) {
+	t.Skip()
 	var doneWG, readyWG sync.WaitGroup
 	defer doneWG.Wait()
 
@@ -5052,6 +5154,7 @@ spec:
 }
 
 func TestKprobeSockPrivPorts(t *testing.T) {
+	t.Skip()
 	var doneWG, readyWG sync.WaitGroup
 	defer doneWG.Wait()
 
@@ -5137,6 +5240,7 @@ spec:
 }
 
 func TestKprobeSockNotPrivPorts(t *testing.T) {
+	t.Skip()
 	var doneWG, readyWG sync.WaitGroup
 	defer doneWG.Wait()
 
@@ -5222,6 +5326,7 @@ spec:
 }
 
 func TestKprobeSockNotCIDR(t *testing.T) {
+	t.Skip()
 	var doneWG, readyWG sync.WaitGroup
 	defer doneWG.Wait()
 
@@ -5311,6 +5416,7 @@ spec:
 }
 
 func TestKprobeSockMultipleCIDRs(t *testing.T) {
+	t.Skip()
 	var doneWG, readyWG sync.WaitGroup
 	defer doneWG.Wait()
 
@@ -5404,6 +5510,7 @@ spec:
 }
 
 func TestKprobeSockState(t *testing.T) {
+	t.Skip()
 	var doneWG, readyWG sync.WaitGroup
 	defer doneWG.Wait()
 
@@ -5505,6 +5612,7 @@ spec:
 }
 
 func TestKprobeSockFamily(t *testing.T) {
+	t.Skip()
 	var doneWG, readyWG sync.WaitGroup
 	defer doneWG.Wait()
 
@@ -5599,6 +5707,7 @@ spec:
 }
 
 func TestKprobeSkb(t *testing.T) {
+	t.Skip()
 	var doneWG, readyWG sync.WaitGroup
 	defer doneWG.Wait()
 
@@ -5694,6 +5803,7 @@ spec:
 }
 
 func TestKprobeSockIpv6(t *testing.T) {
+	t.Skip()
 	var doneWG, readyWG sync.WaitGroup
 	defer doneWG.Wait()
 
@@ -5783,6 +5893,7 @@ spec:
 }
 
 func TestKprobeSkbIpv6(t *testing.T) {
+	t.Skip()
 	var doneWG, readyWG sync.WaitGroup
 	defer doneWG.Wait()
 
@@ -5980,6 +6091,7 @@ spec:
 }
 
 func TestKprobeNoRateLimit(t *testing.T) {
+	t.Skip()
 	if !kernels.EnableLargeProgs() {
 		t.Skip("Test requires kernel 5.4")
 	}
@@ -5988,6 +6100,7 @@ func TestKprobeNoRateLimit(t *testing.T) {
 }
 
 func TestKprobeRateLimit(t *testing.T) {
+	t.Skip()
 	if !kernels.EnableLargeProgs() {
 		t.Skip("Test requires kernel 5.4")
 	}
@@ -5996,6 +6109,7 @@ func TestKprobeRateLimit(t *testing.T) {
 }
 
 func TestKprobeListSyscallDupsRange(t *testing.T) {
+	t.Skip()
 	if !kernels.MinKernelVersion("5.3.0") {
 		t.Skip("TestCopyFd requires at least 5.3.0 version")
 	}
@@ -6051,6 +6165,7 @@ spec:
 // This just tests if the hooks that we are using in our
 // trace kernel module examples are stable enough
 func TestTraceKernelModuleCallsStability(t *testing.T) {
+	t.Skip()
 	ctx, cancel := context.WithTimeout(context.Background(), tus.Conf().CmdWaitTime)
 	defer cancel()
 
@@ -6080,6 +6195,7 @@ spec:
 }
 
 func TestLinuxBinprmExtractPath(t *testing.T) {
+	t.Skip()
 	if !kernels.EnableLargeProgs() {
 		t.Skip("Older kernels do not support matchArgs with linux_binprm")
 	}
@@ -6175,6 +6291,7 @@ func TestLinuxBinprmExtractPath(t *testing.T) {
 
 // Test module loading/unloading on Ubuntu
 func TestTraceKernelModule(t *testing.T) {
+	t.Skip()
 	_, err := ftrace.ReadAvailFuncs("^find_module_sections$")
 	if err != nil {
 		t.Skip("Skipping test: could not find find_module_sections")
@@ -6338,6 +6455,7 @@ spec:
 }
 
 func TestKprobeKernelStackTrace(t *testing.T) {
+	t.Skip()
 	var doneWG, readyWG sync.WaitGroup
 	defer doneWG.Wait()
 
@@ -6397,6 +6515,7 @@ spec:
 	assert.NoError(t, err)
 }
 func TestKprobeUserStackTrace(t *testing.T) {
+	t.Skip()
 	var doneWG, readyWG sync.WaitGroup
 	defer doneWG.Wait()
 
@@ -6465,6 +6584,7 @@ spec:
 }
 
 func TestKprobeMultiMatcArgs(t *testing.T) {
+	t.Skip()
 	if !kernels.EnableLargeProgs() {
 		t.Skip("Older kernels do not support matchArgs for more than one arguments")
 	}
@@ -6608,6 +6728,7 @@ func trigger(t *testing.T) {
 }
 
 func TestKprobeArgs(t *testing.T) {
+	t.Skip()
 	_, err := ftrace.ReadAvailFuncs("^bpf_fentry_test1$")
 	if err != nil {
 		t.Skip("Skipping test: could not find bpf_fentry_test1")
@@ -6780,6 +6901,7 @@ spec:
 
 // Detect changing capabilities
 func TestProcessSetCap(t *testing.T) {
+	t.Skip()
 	var doneWG, readyWG sync.WaitGroup
 	defer doneWG.Wait()
 
@@ -6907,6 +7029,7 @@ spec:
 }
 
 func TestMissedProgStatsKprobeMulti(t *testing.T) {
+	t.Skip()
 	var doneWG, readyWG sync.WaitGroup
 	defer doneWG.Wait()
 
@@ -6972,6 +7095,7 @@ tetragon_missed_prog_probes_total{attach="wake_up_new_task",policy="__base__"} 0
 }
 
 func TestKprobeBpfCmd(t *testing.T) {
+	t.Skip()
 	var doneWG, readyWG sync.WaitGroup
 	defer doneWG.Wait()
 

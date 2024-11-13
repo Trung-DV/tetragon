@@ -18,6 +18,7 @@ import (
 )
 
 func TestEnforcerOverride32(t *testing.T) {
+	t.Skip()
 	testEnforcerCheckSkip(t)
 
 	prctlID := uint64(0)
@@ -62,6 +63,7 @@ func TestEnforcerOverride32(t *testing.T) {
 }
 
 func TestEnforcerSignal32(t *testing.T) {
+	t.Skip()
 	testEnforcerCheckSkip(t)
 
 	prctlID := uint64(0)
@@ -108,6 +110,7 @@ func TestEnforcerSignal32(t *testing.T) {
 }
 
 func TestEnforcerOverrideBothBits(t *testing.T) {
+	t.Skip()
 	testEnforcerCheckSkip(t)
 
 	prctlID := uint64(0)

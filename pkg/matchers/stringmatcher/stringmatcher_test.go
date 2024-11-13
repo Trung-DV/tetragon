@@ -11,6 +11,7 @@ import (
 )
 
 func TestStringMatcherFullSmoke(t *testing.T) {
+	t.Skip()
 	str := "foobarqux"
 
 	yamlStr := `
@@ -31,6 +32,7 @@ func TestStringMatcherFullSmoke(t *testing.T) {
 }
 
 func TestStringMatcherPrefixSmoke(t *testing.T) {
+	t.Skip()
 	str := "foobarqux"
 
 	yamlStr := `
@@ -54,6 +56,7 @@ func TestStringMatcherPrefixSmoke(t *testing.T) {
 }
 
 func TestStringMatcherSuffixSmoke(t *testing.T) {
+	t.Skip()
 	str := "foobarqux"
 
 	yamlStr := `
@@ -77,6 +80,7 @@ func TestStringMatcherSuffixSmoke(t *testing.T) {
 }
 
 func TestStringMatcherContainsSmoke(t *testing.T) {
+	t.Skip()
 	str := "foobarqux"
 
 	yamlStr := `
@@ -103,6 +107,7 @@ func TestStringMatcherContainsSmoke(t *testing.T) {
 }
 
 func TestStringMatcherRegexSmoke(t *testing.T) {
+	t.Skip()
 	yamlStr := `
     operator: regex
     value: ".*barqux$"

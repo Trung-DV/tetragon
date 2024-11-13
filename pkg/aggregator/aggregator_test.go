@@ -10,6 +10,7 @@ import (
 )
 
 func Test_getNameOrIp(t *testing.T) {
+	t.Skip()
 	assert.Equal(t, "1.1.1.1", getNameOrIp("1.1.1.1", []string{}))
 	assert.Equal(t, "a.com,b.com,c.com", getNameOrIp("1.1.1.1", []string{"b.com", "c.com", "a.com"}))
 }

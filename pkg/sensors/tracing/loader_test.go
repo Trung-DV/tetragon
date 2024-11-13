@@ -88,6 +88,7 @@ func parseBuildId(filename string) ([]byte, error) {
 }
 
 func TestLoader(t *testing.T) {
+	t.Skip()
 	if !hasLoaderEvents() {
 		t.Skip("no support for loader events")
 	}

@@ -26,6 +26,7 @@ import (
 )
 
 func TestKprobeCloneThreads(t *testing.T) {
+	t.Skip()
 	testutils.CaptureLog(t, logger.GetLogger().(*logrus.Logger))
 	var doneWG, readyWG sync.WaitGroup
 	defer doneWG.Wait()

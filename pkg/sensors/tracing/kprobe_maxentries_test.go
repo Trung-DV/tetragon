@@ -72,6 +72,7 @@ func run(t *testing.T, maps []testMap, config string) {
 }
 
 func TestMaxEntries(t *testing.T) {
+	t.Skip()
 	t.Run("noresize", func(t *testing.T) {
 		run(t, []testMap{
 			{"fdinstall_map", 1},

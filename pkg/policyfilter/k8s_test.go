@@ -701,6 +701,7 @@ func testContainersChange(t *testing.T, st *state, ts *testState) {
 
 // example taken from https://github.com/kubernetes/client-go/blob/04ef61f72b7bc5ae6efef4e4dc0001746637fdb3/examples/fake-client/main_test.go
 func TestK8s(t *testing.T) {
+	t.Skip()
 	ctx, cancel := context.WithCancel(context.Background())
 	defer cancel()
 

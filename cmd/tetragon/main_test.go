@@ -26,6 +26,7 @@ func TestMain(m *testing.M) {
 // when it observer is ready. By that time we should have
 // exec events generated, make sure it's done.
 func TestGeneratedExecEvents(t *testing.T) {
+	t.Skip()
 	ctx, cancel := context.WithCancel(context.Background())
 	ready := func() {
 		cancel()

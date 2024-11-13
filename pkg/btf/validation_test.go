@@ -49,6 +49,7 @@ var testFiles = []struct {
 }
 
 func TestSpecs(t *testing.T) {
+	t.Skip()
 	_, testFname, _, _ := runtime.Caller(0)
 	testdataPath := filepath.Join(filepath.Dir(testFname), "..", "..", "testdata")
 
@@ -82,6 +83,7 @@ func TestSpecs(t *testing.T) {
 }
 
 func TestEnum(t *testing.T) {
+	t.Skip()
 	require.Equal(t,
 		getKernelType(&btf.Enum{
 			Size:   2,

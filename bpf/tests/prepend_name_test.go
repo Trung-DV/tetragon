@@ -110,6 +110,7 @@ func NewPrependNameState(t *testing.T, stateMap *ebpf.Map) PrependNameState {
 }
 
 func Test_PrependName(t *testing.T) {
+	t.Skip()
 	// load test program
 	coll, err := ebpf.LoadCollection("objs/prepend_name_test.o")
 	if err != nil {

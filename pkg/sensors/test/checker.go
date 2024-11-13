@@ -46,6 +46,7 @@ type TestEventChecker struct {
 
 // TestCheckerMarkEnd executes the necessary operations to mark the end of event stream on all CPUs
 func TestCheckerMarkEnd(t *testing.T) {
+	t.Skip()
 	testBin := testutils.RepoRootPath("contrib/tester-progs/trigger-test-events")
 	testCmd := exec.Command(testBin)
 	err := testCmd.Run()

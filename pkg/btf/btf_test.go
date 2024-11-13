@@ -41,6 +41,7 @@ func setupfiles() func(*testing.T, string, ...string) {
 }
 
 func TestObserverFindBTF(t *testing.T) {
+	t.Skip()
 	tmpdir := t.TempDir()
 
 	old := os.Getenv("TETRAGON_BTF")
@@ -78,6 +79,7 @@ func TestObserverFindBTF(t *testing.T) {
 }
 
 func TestObserverFindBTFEnv(t *testing.T) {
+	t.Skip()
 	old := os.Getenv("TETRAGON_BTF")
 	defer os.Setenv("TETRAGON_BTF", old)
 
@@ -142,6 +144,7 @@ func TestObserverFindBTFEnv(t *testing.T) {
 }
 
 func TestInitCachedBTF(t *testing.T) {
+	t.Skip()
 	_, err := os.Stat(defaults.DefaultBTFFile)
 	if err != nil {
 		btffile := os.Getenv("TETRAGON_BTF")

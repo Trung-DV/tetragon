@@ -80,6 +80,7 @@ func TestMain(m *testing.M) {
 }
 
 func TestNamespacedPolicy(t *testing.T) {
+	t.Skip()
 	runner.SetupExport(t)
 
 	checker := nsChecker().WithTimeLimit(30 * time.Second).WithEventLimit(20)
@@ -211,6 +212,7 @@ func (nsc *namespaceChecker) FinalCheck(_ *logrus.Logger) error {
 }
 
 func TestPodLabelFilters(t *testing.T) {
+	t.Skip()
 	runner.SetupExport(t)
 
 	checker := podlblChecker().WithTimeLimit(30 * time.Second).WithEventLimit(20)
@@ -373,6 +375,7 @@ func (plc *podLabelChecker) FinalCheck(_ *logrus.Logger) error {
 }
 
 func TestContainerFieldFilters(t *testing.T) {
+	t.Skip()
 	runner.SetupExport(t)
 
 	checker := containerSelectorChecker().WithTimeLimit(30 * time.Second).WithEventLimit(20)

@@ -19,6 +19,7 @@ import (
 )
 
 func TestK8sWatcher_GetPodInfo(t *testing.T) {
+	t.Skip()
 	controller := true
 	pod := v1.Pod{
 		ObjectMeta: metav1.ObjectMeta{

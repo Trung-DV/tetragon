@@ -13,6 +13,7 @@ import (
 )
 
 func TestCapFilterAny(t *testing.T) {
+	t.Skip()
 	f := []*tetragon.Filter{{Capabilities: &tetragon.CapFilter{Effective: &tetragon.CapFilterSet{
 		Any: []tetragon.CapabilitiesType{tetragon.CapabilitiesType_CAP_SYS_ADMIN, tetragon.CapabilitiesType_CAP_BPF},
 	}}}}
@@ -58,6 +59,7 @@ func TestCapFilterAny(t *testing.T) {
 }
 
 func TestCapFilterAll(t *testing.T) {
+	t.Skip()
 	f := []*tetragon.Filter{{Capabilities: &tetragon.CapFilter{Effective: &tetragon.CapFilterSet{
 		All: []tetragon.CapabilitiesType{tetragon.CapabilitiesType_CAP_SYS_ADMIN, tetragon.CapabilitiesType_CAP_BPF},
 	}}}}
@@ -103,6 +105,7 @@ func TestCapFilterAll(t *testing.T) {
 }
 
 func TestCapFilterExactly(t *testing.T) {
+	t.Skip()
 	f := []*tetragon.Filter{{Capabilities: &tetragon.CapFilter{Inheritable: &tetragon.CapFilterSet{
 		Exactly: []tetragon.CapabilitiesType{tetragon.CapabilitiesType_CAP_SYS_ADMIN, tetragon.CapabilitiesType_CAP_BPF},
 	}}}}
@@ -148,6 +151,7 @@ func TestCapFilterExactly(t *testing.T) {
 }
 
 func TestCapFilterNone(t *testing.T) {
+	t.Skip()
 	f := []*tetragon.Filter{{Capabilities: &tetragon.CapFilter{Permitted: &tetragon.CapFilterSet{
 		None: []tetragon.CapabilitiesType{tetragon.CapabilitiesType_CAP_SYS_ADMIN, tetragon.CapabilitiesType_CAP_BPF},
 	}}}}

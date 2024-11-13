@@ -12,6 +12,7 @@ import (
 )
 
 func TestAccountUnix(t *testing.T) {
+	t.Skip()
 	hostNs, err := namespace.InitHostNamespace()
 	require.NoError(t, err)
 

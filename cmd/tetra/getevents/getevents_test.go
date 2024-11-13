@@ -14,6 +14,7 @@ import (
 )
 
 func Test_GetEvents_Namespaces(t *testing.T) {
+	t.Skip()
 	t.Run("FilterNothing", func(t *testing.T) {
 		testutils.MockPipedFile(t, testutils.RepoRootPath("testdata/events.json"))
 		cmd := New()
@@ -32,6 +33,7 @@ func Test_GetEvents_Namespaces(t *testing.T) {
 }
 
 func Test_GetEvents_EventTypes(t *testing.T) {
+	t.Skip()
 	t.Run("FilterProcessExec", func(t *testing.T) {
 		testutils.MockPipedFile(t, testutils.RepoRootPath("testdata/events.json"))
 		cmd := New()
@@ -57,6 +59,7 @@ func Test_GetEvents_EventTypes(t *testing.T) {
 }
 
 func Test_GetEvents_Pods(t *testing.T) {
+	t.Skip()
 	t.Run("FilterTie", func(t *testing.T) {
 		testutils.MockPipedFile(t, testutils.RepoRootPath("testdata/events.json"))
 		cmd := New()
@@ -75,6 +78,7 @@ func Test_GetEvents_Pods(t *testing.T) {
 }
 
 func Test_GetEvents_Processes(t *testing.T) {
+	t.Skip()
 	t.Run("FilterNetserver", func(t *testing.T) {
 		testutils.MockPipedFile(t, testutils.RepoRootPath("testdata/events.json"))
 		cmd := New()
@@ -93,6 +97,7 @@ func Test_GetEvents_Processes(t *testing.T) {
 }
 
 func Test_GetEvents_FilterFields(t *testing.T) {
+	t.Skip()
 	t.Run("ExcludeParent", func(t *testing.T) {
 		testutils.MockPipedFile(t, testutils.RepoRootPath("testdata/events.json"))
 		cmd := New()

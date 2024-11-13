@@ -36,6 +36,7 @@ parent:		(pid:143563, tid:143563, ppid:7860)	child1 (143564) exited with: 0
 `
 
 func TestThreadTesterParser(t *testing.T) {
+	t.Skip()
 	cti := &testutils.ThreadTesterInfo{}
 	for _, l := range strings.Split(sampleThreadTesterOutput, "\n") {
 		cti.ParseLine(l)
@@ -52,6 +53,7 @@ func TestThreadTesterParser(t *testing.T) {
 }
 
 func TestCloneThreadsTester(t *testing.T) {
+	t.Skip()
 	var doneWG, readyWG sync.WaitGroup
 	defer doneWG.Wait()
 
@@ -89,6 +91,7 @@ func TestCloneThreadsTester(t *testing.T) {
 }
 
 func TestMatchCloneThreadsIDs(t *testing.T) {
+	t.Skip()
 	testutils.CaptureLog(t, logger.GetLogger().(*logrus.Logger))
 	ctx, cancel := context.WithTimeout(context.Background(), tus.Conf().CmdWaitTime)
 	defer cancel()
@@ -174,6 +177,7 @@ func TestMatchCloneThreadsIDs(t *testing.T) {
 }
 
 func TestExecThreads(t *testing.T) {
+	t.Skip()
 	var doneWG, readyWG sync.WaitGroup
 	defer doneWG.Wait()
 

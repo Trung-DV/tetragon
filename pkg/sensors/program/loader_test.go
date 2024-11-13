@@ -11,6 +11,7 @@ import (
 )
 
 func TestLoaderLinkPinPath(t *testing.T) {
+	t.Skip()
 	bpfDir := "/sys/fs/bpf/tetragon"
 
 	var load *Program

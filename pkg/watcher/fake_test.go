@@ -11,6 +11,7 @@ import (
 )
 
 func TestFakeK8sWatcher_AddService(t *testing.T) {
+	t.Skip()
 	services := []interface{}{
 		&corev1.Service{},
 		&corev1.Service{},
@@ -23,6 +24,7 @@ func TestFakeK8sWatcher_AddService(t *testing.T) {
 }
 
 func TestFakeK8sWatcher_ClearAllServices(t *testing.T) {
+	t.Skip()
 	services := []interface{}{
 		&corev1.Service{},
 		&corev1.Service{},

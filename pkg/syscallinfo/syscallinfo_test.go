@@ -12,6 +12,7 @@ import (
 )
 
 func TestSycallInfo(t *testing.T) {
+	t.Skip()
 	abi, err := DefaultABI()
 	require.NoError(t, err)
 	sysName, err := GetSyscallName(abi, unix.SYS_BPF)

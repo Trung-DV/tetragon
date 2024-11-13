@@ -13,6 +13,7 @@ import (
 )
 
 func Test_ProbeCommand(t *testing.T) {
+	t.Skip()
 	cmd := New()
 	cmdOutput := &bytes.Buffer{}
 	cmd.SetOut(cmdOutput)

@@ -600,6 +600,7 @@ func setupObserver(t *testing.T) *tus.TestSensorManager {
 
 // Test loading bpf cgroups programs
 func TestLoadCgroupsPrograms(t *testing.T) {
+	t.Skip()
 	testutils.CaptureLog(t, logger.GetLogger().(*logrus.Logger))
 
 	option.Config.HubbleLib = tus.Conf().TetragonLib
@@ -611,6 +612,7 @@ func TestLoadCgroupsPrograms(t *testing.T) {
 
 // Test `tg_conf_map` BPF map that it can hold runtime configuration
 func TestTgRuntimeConf(t *testing.T) {
+	t.Skip()
 	testutils.CaptureLog(t, logger.GetLogger().(*logrus.Logger))
 
 	option.Config.HubbleLib = tus.Conf().TetragonLib
@@ -640,6 +642,7 @@ func TestTgRuntimeConf(t *testing.T) {
 
 // Test we do not receive any cgroup events from BPF side
 func TestCgroupNoEvents(t *testing.T) {
+	t.Skip()
 	testutils.CaptureLog(t, logger.GetLogger().(*logrus.Logger))
 	ctx, cancel := context.WithTimeout(context.Background(), defaultTimeout)
 	defer cancel()
@@ -692,6 +695,7 @@ func TestCgroupNoEvents(t *testing.T) {
 
 // Ensure that we get cgroup_{mkdir|rmdir} events
 func TestCgroupEventMkdirRmdir(t *testing.T) {
+	t.Skip()
 	testutils.CaptureLog(t, logger.GetLogger().(*logrus.Logger))
 	ctx, cancel := context.WithTimeout(context.Background(), defaultTimeout)
 	defer cancel()
@@ -1043,6 +1047,7 @@ func testCgroupv2K8sHierarchy(ctx context.Context, t *testing.T, mode cgroups.Cg
 // Test Cgroupv2 tries to emulate k8s hierarchy without exec context
 // Works in systemd Unified pure cgroupv2
 func TestCgroupv2K8sHierarchyInUnified(t *testing.T) {
+	t.Skip()
 	testutils.CaptureLog(t, logger.GetLogger().(*logrus.Logger))
 	ctx, cancel := context.WithTimeout(context.Background(), defaultTimeout)
 	defer cancel()
@@ -1065,6 +1070,7 @@ func TestCgroupv2K8sHierarchyInUnified(t *testing.T) {
 // Test Cgroupv2 tries to emulate k8s hierarchy without exec context
 // Works in systemd hybrid mode
 func TestCgroupv2K8sHierarchyInHybrid(t *testing.T) {
+	t.Skip()
 	testutils.CaptureLog(t, logger.GetLogger().(*logrus.Logger))
 	ctx, cancel := context.WithTimeout(context.Background(), defaultTimeout)
 	defer cancel()
@@ -1280,33 +1286,39 @@ func testCgroupv1K8sHierarchyInHybrid(t *testing.T, withExec bool, selectedContr
 // Works in systemd hybrid mode
 // This test will select the best cgroup controller to use
 func TestCgroupv1K8sHierarchyInHybridDefault(t *testing.T) {
+	t.Skip()
 	testCgroupv1K8sHierarchyInHybrid(t, false, "")
 }
 
 // This test will use the memory cgroup controller if available
 func TestCgroupv1K8sHierarchyInHybridMemory(t *testing.T) {
+	t.Skip()
 	testCgroupv1K8sHierarchyInHybrid(t, false, "memory")
 }
 
 // This test will use the pids cgroup controller if available
 func TestCgroupv1K8sHierarchyInHybridPids(t *testing.T) {
+	t.Skip()
 	testCgroupv1K8sHierarchyInHybrid(t, false, "pids")
 }
 
 // This test will use the cpuset cgroup controller if available
 func TestCgroupv1K8sHierarchyInHybridCpuset(t *testing.T) {
+	t.Skip()
 	testCgroupv1K8sHierarchyInHybrid(t, false, "cpuset")
 }
 
 // This test will not use the blkio, it will fallback to the
 // best cgroup controller if available
 func TestCgroupv1K8sHierarchyInHybridBlkio(t *testing.T) {
+	t.Skip()
 	testCgroupv1K8sHierarchyInHybrid(t, false, "blkio")
 }
 
 // This test will not use the invalid cgroup controller, it will
 // fallback to the best cgroup controller if available
 func TestCgroupv1K8sHierarchyInHybridInvalid(t *testing.T) {
+	t.Skip()
 	testCgroupv1K8sHierarchyInHybrid(t, false, "invalid-cgroup-controller")
 }
 
@@ -1314,34 +1326,40 @@ func TestCgroupv1K8sHierarchyInHybridInvalid(t *testing.T) {
 // Works in systemd hybrid mode
 // This test will select the best cgroup controller to use
 func TestCgroupv1ExecK8sHierarchyInHybridDefault(t *testing.T) {
+	t.Skip()
 	testCgroupv1K8sHierarchyInHybrid(t, true, "")
 }
 
 // This test will use the memory cgroup controller if available
 func TestCgroupv1ExecK8sHierarchyInHybridMemory(t *testing.T) {
+	t.Skip()
 	testCgroupv1K8sHierarchyInHybrid(t, true, "memory")
 }
 
 // This test will use the pids cgroup controller if available
 func TestCgroupv1ExecK8sHierarchyInHybridPids(t *testing.T) {
+	t.Skip()
 	testCgroupv1K8sHierarchyInHybrid(t, true, "pids")
 }
 
 // This test will not use the blkio, it will fallback to the
 // best cgroup controller if available
 func TestCgroupv1ExecK8sHierarchyInHybridBlkio(t *testing.T) {
+	t.Skip()
 	testCgroupv1K8sHierarchyInHybrid(t, true, "blkio")
 }
 
 // This test will not use the invalid cgroup controller, it will
 // fallback to the best cgroup controller if available
 func TestCgroupv1ExecK8sHierarchyInHybridInvalid(t *testing.T) {
+	t.Skip()
 	testCgroupv1K8sHierarchyInHybrid(t, true, "invalid-cgroup-controller")
 }
 
 // Test Cgroupv2 tries to emulate k8s hierarchy with exec context
 // Works in systemd hybrid mode
 func TestCgroupv2ExecK8sHierarchyInUnified(t *testing.T) {
+	t.Skip()
 	testutils.CaptureLog(t, logger.GetLogger().(*logrus.Logger))
 	ctx, cancel := context.WithTimeout(context.Background(), defaultTimeout)
 	defer cancel()

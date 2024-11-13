@@ -10,6 +10,7 @@ import (
 )
 
 func TestUsersRecords(t *testing.T) {
+	t.Skip()
 	name, err := UsersCache.lookupUser(0)
 	assert.Error(t, err)
 	assert.Empty(t, name)

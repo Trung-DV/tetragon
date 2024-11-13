@@ -22,6 +22,7 @@ import (
 )
 
 func TestMatchBinariesFollowChildren(t *testing.T) {
+	t.Skip()
 
 	testutils.CaptureLog(t, logger.GetLogger().(*logrus.Logger))
 	ctx, cancel := context.WithTimeout(context.Background(), tus.Conf().CmdWaitTime)

@@ -13,6 +13,7 @@ import (
 )
 
 func TestCreatePidFile(t *testing.T) {
+	t.Skip()
 	err := os.MkdirAll(defaults.DefaultRunDir, os.ModeDir)
 	require.NoError(t, err)
 

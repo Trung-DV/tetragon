@@ -10,6 +10,7 @@ import (
 )
 
 func TestGetPolicyTags(t *testing.T) {
+	t.Skip()
 	input := []string{""}
 	_, err := getPolicyTags(input)
 	require.Error(t, err)

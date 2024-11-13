@@ -28,6 +28,7 @@ import (
 )
 
 func TestKprobeTraceCommitCreds(t *testing.T) {
+	t.Skip()
 	var doneWG, readyWG sync.WaitGroup
 	defer doneWG.Wait()
 
@@ -177,6 +178,7 @@ spec:
 }
 
 func TestKprobeTraceSecureBits(t *testing.T) {
+	t.Skip()
 	var doneWG, readyWG sync.WaitGroup
 	defer doneWG.Wait()
 

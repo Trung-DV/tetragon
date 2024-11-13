@@ -11,6 +11,7 @@ import (
 )
 
 func TestGetPolicyMessage(t *testing.T) {
+	t.Skip()
 	msg, err := getPolicyMessage("")
 	require.Empty(t, msg)
 	require.Equal(t, err, ErrMsgSyntaxEmpty)

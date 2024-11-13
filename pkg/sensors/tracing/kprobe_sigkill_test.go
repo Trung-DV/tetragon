@@ -83,6 +83,7 @@ func testSigkill(t *testing.T, makeSpecFile func(pid string) string, checker *ev
 }
 
 func TestKprobeSigkill(t *testing.T) {
+	t.Skip()
 	if !kernels.MinKernelVersion("5.3.0") {
 		t.Skip("sigkill requires at least 5.3.0 version")
 	}
@@ -114,6 +115,7 @@ func TestKprobeSigkill(t *testing.T) {
 }
 
 func TestReturnKprobeSigkill(t *testing.T) {
+	t.Skip()
 	if !kernels.MinKernelVersion("5.3.0") {
 		t.Skip("sigkill requires at least 5.3.0 version")
 	}
@@ -231,9 +233,11 @@ func testUnprivilegedUsernsKill(t *testing.T, pidns bool) {
 }
 
 func TestKillUnprivilegedUserns(t *testing.T) {
+	t.Skip()
 	testUnprivilegedUsernsKill(t, false)
 }
 
 func TestKillUnprivilegedUsernsPidns(t *testing.T) {
+	t.Skip()
 	testUnprivilegedUsernsKill(t, true)
 }

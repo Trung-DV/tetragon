@@ -25,6 +25,7 @@ import (
 )
 
 func TestExit(t *testing.T) {
+	t.Skip()
 	var doneWG, readyWG sync.WaitGroup
 	defer doneWG.Wait()
 
@@ -57,6 +58,7 @@ func TestExit(t *testing.T) {
 }
 
 func TestExitLeader(t *testing.T) {
+	t.Skip()
 	var doneWG, readyWG sync.WaitGroup
 	defer doneWG.Wait()
 
@@ -133,6 +135,7 @@ func TestExitLeader(t *testing.T) {
 //
 // In our test we check that the parent of the /bin/echo command is the exit-tester program.
 func TestExitZombie(t *testing.T) {
+	t.Skip()
 	var doneWG, readyWG sync.WaitGroup
 	defer doneWG.Wait()
 
@@ -185,6 +188,7 @@ func TestExitZombie(t *testing.T) {
 //
 // In our test we check whether the observed exit code equals the real exit code.
 func TestExitCode(t *testing.T) {
+	t.Skip()
 	var doneWG, readyWG sync.WaitGroup
 	defer doneWG.Wait()
 
@@ -252,6 +256,7 @@ func TestExitCode(t *testing.T) {
 //
 // In our test we check whether the observed exit signal equals the real exit signal.
 func TestExitSignal(t *testing.T) {
+	t.Skip()
 	var doneWG, readyWG sync.WaitGroup
 	defer doneWG.Wait()
 

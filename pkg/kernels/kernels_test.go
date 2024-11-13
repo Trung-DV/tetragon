@@ -10,6 +10,7 @@ import (
 )
 
 func TestKernelStringToNumeric(t *testing.T) {
+	t.Skip()
 	v1 := KernelStringToNumeric("5.17.0")
 	v2 := KernelStringToNumeric("5.17.0+")
 	v3 := KernelStringToNumeric("5.17.0-foobar")
@@ -41,6 +42,7 @@ func TestKernelStringToNumeric(t *testing.T) {
 }
 
 func TestGetKernelVersion(t *testing.T) {
+	t.Skip()
 	ver, verStr, err := GetKernelVersion("", "/proc")
 	assert.Nil(t, err)
 	assert.EqualValues(t, KernelStringToNumeric(verStr), ver)

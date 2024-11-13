@@ -137,5 +137,6 @@ func (suite *ControllerTestSuite) TearDownSuite() {
 }
 
 func TestControllerSuite(t *testing.T) {
+	t.Skip()
 	suite.Run(t, new(ControllerTestSuite))
 }

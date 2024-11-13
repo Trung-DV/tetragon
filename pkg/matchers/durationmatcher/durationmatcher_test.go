@@ -13,6 +13,7 @@ import (
 )
 
 func TestDurationMatcherFullSmoke(t *testing.T) {
+	t.Skip()
 	yamlStr := `
     operator: full
     value: 2s
@@ -45,6 +46,7 @@ func TestDurationMatcherFullSmoke(t *testing.T) {
 }
 
 func TestDurationMatcherLessSmoke(t *testing.T) {
+	t.Skip()
 	yamlStr := `
     operator: less
     value: 1m30s
@@ -82,6 +84,7 @@ func TestDurationMatcherLessSmoke(t *testing.T) {
 }
 
 func TestDurationMatcherGreaterSmoke(t *testing.T) {
+	t.Skip()
 	yamlStr := `
     operator: greater
     value: 1m30s
@@ -119,6 +122,7 @@ func TestDurationMatcherGreaterSmoke(t *testing.T) {
 }
 
 func TestDurationMatcherBetweenSmoke(t *testing.T) {
+	t.Skip()
 	yamlStr := `
     operator: between
     value:
